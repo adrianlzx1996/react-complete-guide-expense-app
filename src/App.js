@@ -8,9 +8,12 @@ function App() {
 		{ id: 'e3', title: 'Car Insurance', amount: 294.67, date: new Date(2021, 3, 4) },
 		{ id: 'e4', title: 'New Desk (Wooden)', amount: 450, date: new Date(2021, 5, 6) },
 	]
+
+	const addExpenseHandler = expense => {}
+
 	return (
 		<div className="App">
-			<NewExpense/>
+			<NewExpense onAddExpense={addExpenseHandler} />
 			<Expenses items={expenses} />
 		</div>
 	);

@@ -7,7 +7,7 @@ const initialUserInput = {
 	date: "",
 }
 
-const ExpenseForm = () => {
+const ExpenseForm = ({ onSaveExpenseData }) => {
 	const [ userInput, setUserInput ] = useState(initialUserInput);
 
 	const titleChangeHandler = (event) => {
@@ -42,6 +42,7 @@ const ExpenseForm = () => {
 			date: new Date(userInput.date),
 		};
 
+		onSaveExpenseData(expenseData);
 		setUserInput(initialUserInput)
 	}
 
@@ -63,9 +64,9 @@ const ExpenseForm = () => {
 						   onChange={dateChangeHandler} value={userInput.date} />
 				</div>
 
-				<div className={"new-expense__actions"}>
-					<button type={"submit"}>Add Expense</button>
-				</div>
+			</div>
+			<div className={"new-expense__actions"}>
+				<button type={"submit"}>Add Expense</button>
 			</div>
 		</form>
 	)
